@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/hello-world")
 public class HelloWorldController {
 
+    private final GreetingService greetingService;
+
     @Autowired
-    private GreetingService greetingService;
+    public HelloWorldController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
 
     @GetMapping("/greeting")
     public ResponseEntity<String> getGreeting() {

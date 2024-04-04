@@ -25,7 +25,7 @@ class HelloWorldControllerTwoTests {
     private MockMvc mockMvc;
 
     @Test
-    public void testIndexEndpoint() throws Exception {
+    void testIndexEndpoint() throws Exception {
         // Mock
         when(greetingService.greeting(true)).thenReturn("Hello World");
 
@@ -36,8 +36,7 @@ class HelloWorldControllerTwoTests {
         ResultActions result = mockMvc.perform(MockMvcRequestBuilders.get(endpoint).accept(MediaType.APPLICATION_JSON));
 
         // Then
-        result.andExpect(status().isOk())
-                .andExpect(content().string(containsString("Hello World")));
+        result.andExpect(status().isOk()).andExpect(content().string(containsString("Hello World")));
         verify(greetingService, times(1)).greeting(true);
     }
 
