@@ -1,0 +1,36 @@
+hello-world
+	localhost:8880/hello-world/greeting
+	
+Manual
+mvn clean package
+
+docker build --tag=spring-hello-world:0.0.1-SNAPSHOT -f src/main/docker/Dockerfile .
+docker run -p 8880:8080 --name spring-hello-world -d spring-hello-world:0.0.1-SNAPSHOT
+
+kubectl create deployment spring-hello-world --image=spring-hello-world:0.0.1-SNAPSHOT
+kubectl expose deployment spring-hello-world --type=LoadBalancer --port=8880
+kubectl describe service spring-hello-world
+kubectl logs spring-hello-world-587d756754-csdqf
+kubectl get all
+
+Automation 
+Jenkins
+
+ซอฟต์แวร์ที่ควบคุมการจัดเก็บ การจัดระเบียบ และการเรียกค้นข้อมูล
+โดยทั่วไปแล้ว DBMS จะมีองค์ประกอบดังต่อไปนี้:
+
+
+
+106 / 5,000
+ผลลัพธ์การแปล
+ผลการแปล
+Hierarchical
+
+
+
+60 / 5,000
+ผลลัพธ์การแปล
+ผลการแปล
+
+
+transactions
