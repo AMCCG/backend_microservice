@@ -37,6 +37,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                timeout(time: 15, unit: "MINUTES") {
+                    input message: 'Do you want to approve the deployment?', ok: 'Yes'
+                }
                 echo 'Deploying....'
                 dir('hello-world') {
                     bat 'docker run -p 8880:8880 --name spring-hello-world -d spring-hello-world:0.0.2-JENKINS'
