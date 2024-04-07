@@ -20,7 +20,9 @@ Manual
 mvn clean package
 
 docker build --tag=spring-hello-world:0.0.1-SNAPSHOT -f src/main/docker/Dockerfile .
-docker run -p 8880:8080 --name spring-hello-world -d spring-hello-world:0.0.1-SNAPSHOT
+
+
+docker run -p 8880:8880 --name spring-hello-world -d spring-hello-world:0.0.1-SNAPSHOT
 
 kubectl create deployment spring-hello-world --image=spring-hello-world:0.0.1-SNAPSHOT
 kubectl expose deployment spring-hello-world --type=LoadBalancer --port=8880
@@ -31,4 +33,8 @@ kubectl get all
 Automation 
 Jenkins
 6a2d13305e8d065606f72e5f538712c4d15ac915f802d26d3903f0fd1e78af33
+
+docker build --tag=spring-hello-world:0.0.2-JENKINS -f src/main/docker/Dockerfile .
+docker run -p 8880:8880 --name spring-hello-world -d spring-hello-world:0.0.2-JENKINS
+
 	

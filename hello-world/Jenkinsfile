@@ -2,22 +2,45 @@ pipeline {
     agent any
 
     stages {
+
         stage('Build') {
             steps {
                 echo 'Building..'
                 bat 'dir'
-                bat 'cd hello-world'
-                bat 'mvn clean package'
+                bat 'mvn -version'
+                dir('hello-world') {
+                    bat 'dir'
+                    bat 'mvn clean package'
+                }
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                bat 'dir'
+                dir('hello-world') {
+                    bat 'dir'
+                    bat 'mvn test'
+                }
+            }
+        }
+        stage('Build Image') {
+            steps {
+                echo 'Building Image..'
+                bat 'docker --version'
+                dir('hello-world') {
+                    bat 'dir'
+                    bat 'docker build --tag=spring-hello-world:0.0.2-JENKINS -f src/main/docker/Dockerfile .'
+                    bat 'docker image ls'
+                }
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                dir('hello-world') {
+                    bat 'docker run -p 8880:8880 --name spring-hello-world -d spring-hello-world:0.0.2-JENKINS'
+                }
             }
         }
     }
