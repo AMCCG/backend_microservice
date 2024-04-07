@@ -1,3 +1,18 @@
+My LAB
+
+My Systems
+
+Easy and Simple
+
+***************************************************************	
+Step
+	1. Run project ใน local
+	2. Run project เป็น container ผ่าน docker
+	3. Run project บน kubernetes
+	4. Run project ผ่าน jenkins pipeline
+	
+***************************************************************
+
 hello-world
 	localhost:8880/hello-world/greeting
 	
@@ -15,22 +30,5 @@ kubectl get all
 
 Automation 
 Jenkins
-
-ซอฟต์แวร์ที่ควบคุมการจัดเก็บ การจัดระเบียบ และการเรียกค้นข้อมูล
-โดยทั่วไปแล้ว DBMS จะมีองค์ประกอบดังต่อไปนี้:
-
-
-
-106 / 5,000
-ผลลัพธ์การแปล
-ผลการแปล
-Hierarchical
-
-
-
-60 / 5,000
-ผลลัพธ์การแปล
-ผลการแปล
-
-
-transactions
+6a2d13305e8d065606f72e5f538712c4d15ac915f802d26d3903f0fd1e78af33
+	
