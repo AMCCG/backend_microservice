@@ -6,6 +6,8 @@ pipeline {
             steps {
                 echo 'Building..'
                 bat 'dir'
+                bat 'cd hello-world'
+                bat 'mvn clean package'
             }
         }
         stage('Test') {
