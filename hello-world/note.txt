@@ -1,0 +1,15 @@
+spring-boot:build-image -DskipTests
+
+http://localhost:8001/actuator/health/liveness
+http://localhost:8001/actuator/health/readiness
+=============
+kubectl create deployment currency-exchange --image=mmv2-hello-world:0.0.1-SNAPSHOT
+kubectl expose deployment currency-exchange --type=LoadBalancer --port=8001
+kubectl get all
+kubectl logs --follow currency-exchange-5fc889f54b-fbxpq
+http://localhost:8001/hello-world/greeting
+
+kubectl get deployment currency-exchange -o yaml > deployment.yaml
+kubectl get service currency-exchange -o yaml > service.yaml
+dir
+kubectl apply -f deployment.yaml
