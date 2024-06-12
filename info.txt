@@ -12,7 +12,6 @@ Step
 	4. Run project ผ่าน jenkins pipeline
 	
 ***************************************************************
-
 hello-world
 	localhost:8880/hello-world/greeting
 	

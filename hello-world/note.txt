@@ -2,6 +2,8 @@ spring-boot:build-image -DskipTests
 
 http://localhost:8001/actuator/health/liveness
 http://localhost:8001/actuator/health/readiness
+
+http://192.168.2.41:8001/hello-world/greeting
 =============
 kubectl create deployment currency-exchange --image=mmv2-hello-world:0.0.1-SNAPSHOT
 kubectl expose deployment currency-exchange --type=LoadBalancer --port=8001

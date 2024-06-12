@@ -1,6 +1,6 @@
 package com.microservice.backend.helloworld.controller;
 
-import com.microservice.backend.helloworld.model.Information;
+import com.microservice.backend.helloworld.dto.InformationResponse;
 import com.microservice.backend.helloworld.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -27,11 +27,11 @@ public class HelloWorldController {
     }
 
     @GetMapping("/greeting")
-    public ResponseEntity<Information> getGreeting() throws UnknownHostException {
+    public ResponseEntity<InformationResponse> getGreeting() throws UnknownHostException {
         String host = Optional.ofNullable(environment.getProperty("HOSTNAME")).orElse(InetAddress.getLocalHost().getHostName());
         String version = "v1";
         String greeting = greetingService.greeting(true);
-        Information information = Information.builder().hostName(host).version(version).greeting(greeting).build();
+        InformationResponse information = InformationResponse.builder().hostName(host).version(version).greeting(greeting).build();
         return ResponseEntity.ok(information);
     }
 
