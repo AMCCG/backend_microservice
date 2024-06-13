@@ -1,4 +1,4 @@
-package com.microservice.backend.helloworld;
+package com.microservice.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
-class HelloWorldApplicationTests {
+class MainApplicationTests {
 
     @Autowired
     private ApplicationContext context;
