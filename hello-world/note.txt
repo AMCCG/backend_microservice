@@ -15,3 +15,6 @@ kubectl get deployment currency-exchange -o yaml > deployment.yaml
 kubectl get service currency-exchange -o yaml > service.yaml
 dir
 kubectl apply -f deployment.yaml
+=============
+http://localhost:8001/v3/api-docs
+http://localhost:8001/swagger-ui-custom.html
