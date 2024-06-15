@@ -4,6 +4,10 @@ http://localhost:8001/actuator/health/liveness
 http://localhost:8001/actuator/health/readiness
 
 http://192.168.2.41:8001/hello-world/greeting
+
+Gateway
+http://192.168.2.41:8765/hello-world/greeting
+
 =============
 kubectl create deployment currency-exchange --image=mmv2-hello-world:0.0.1-SNAPSHOT
 kubectl expose deployment currency-exchange --type=LoadBalancer --port=8001
@@ -18,3 +22,4 @@ kubectl apply -f deployment.yaml
 =============
 http://localhost:8001/v3/api-docs
 http://localhost:8001/swagger-ui-custom.html
+
