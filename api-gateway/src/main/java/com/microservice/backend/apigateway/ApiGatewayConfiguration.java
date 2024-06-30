@@ -10,6 +10,9 @@ public class ApiGatewayConfiguration {
 
     @Bean
     public RouteLocator gatewayRouter(RouteLocatorBuilder routeLocatorBuilder) {
-        return routeLocatorBuilder.routes().route(p -> p.path("/hello-world/**").uri("lb://hello-world")).build();
+        return routeLocatorBuilder.routes()
+                .route(p -> p.path("/hello-world/**").uri("lb://hello-world"))
+                .route(p -> p.path("/python-backend-service/**").uri("http://127.0.0.1:8000/python-backend-service/")
+                ).build();
     }
 }
