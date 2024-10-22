@@ -12,35 +12,41 @@ Step
 	4. Run project ผ่าน jenkins pipeline
 	
 ***************************************************************
+eureka
+	http://127.0.0.1:8761/
 hello-world
-	localhost:8880/hello-world/greeting
+	http://127.0.0.1:8001/hello-world/greeting
+user-service
+	http://127.0.0.1:8080/v1/user-service/users
+api-gateway
+	http://127.0.0.1:8765/
+	http://127.0.0.1:8765/hello-world/greeting
 	
 Manual
 mvn clean package
 
 docker build --tag=spring-hello-world:0.0.1-SNAPSHOT -f src/main/docker/Dockerfile .
 
-
-docker run -p 8880:8880 --name spring-hello-world -d spring-hello-world:0.0.1-SNAPSHOT
+docker run -p 8001:8001 --name spring-hello-world -d spring-hello-world:0.0.1-SNAPSHOT
 
 kubectl create deployment spring-hello-world --image=spring-hello-world:0.0.1-SNAPSHOT
-kubectl expose deployment spring-hello-world --type=LoadBalancer --port=8880
+kubectl expose deployment spring-hello-world --type=LoadBalancer --port=8001
 kubectl describe service spring-hello-world
 kubectl logs spring-hello-world-587d756754-csdqf
 kubectl get all
-http://localhost:8880/hello-world/greeting
+http://localhost:8001/hello-world/greeting
 
 Automation 
 Jenkins
 6a2d13305e8d065606f72e5f538712c4d15ac915f802d26d3903f0fd1e78af33
 
 docker build --tag=spring-hello-world:0.0.2-JENKINS -f src/main/docker/Dockerfile .
-docker run -p 8880:8880 --name spring-hello-world -d spring-hello-world:0.0.2-JENKINS
+docker run -p 8001:8001 --name spring-hello-world -d spring-hello-world:0.0.2-JENKINS
 
 kubectl create deployment spring-hello-world --image=spring-hello-world:0.0.2-JENKINS
-kubectl expose deployment spring-hello-world --type=LoadBalancer --port=8880
+kubectl expose deployment spring-hello-world --type=LoadBalancer --port=8001
 kubectl describe service spring-hello-world
 kubectl logs spring-hello-world-cc4ddd45-kq9h6
 kubectl scale deployment spring-hello-world --replicas=2
 kubectl get all
-http://localhost:8880/hello-world/greeting
+http://localhost:8001/hello-world/greeting

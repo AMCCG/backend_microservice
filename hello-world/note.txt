@@ -1,5 +1,7 @@
 spring-boot:build-image -DskipTests
 
+http://127.0.0.1:8001/swagger-ui/index.html
+
 http://localhost:8001/actuator/health/liveness
 http://localhost:8001/actuator/health/readiness
 
