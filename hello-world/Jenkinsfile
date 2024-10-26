@@ -42,7 +42,7 @@ pipeline {
                 }
                 echo 'Deploying....'
                 dir('hello-world') {
-                    bat 'docker run -p 8880:8880 --name spring-hello-world -d spring-hello-world:0.0.2-JENKINS'
+                    bat 'docker run -p 8001:8001 --memory=256m --memory-reservation=128m --name spring-hello-world -d spring-hello-world:0.0.2-JENKINS'
                 }
             }
         }
