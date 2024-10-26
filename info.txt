@@ -21,7 +21,11 @@ user-service
 api-gateway
 	http://127.0.0.1:8765/
 	http://127.0.0.1:8765/hello-world/greeting
-	
+	http://127.0.0.1:8765/python-backend-service/users
+
+Python
+http://127.0.0.1:8000/python-backend-service/users
+
 Manual
 mvn clean package
 
