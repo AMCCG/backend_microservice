@@ -1,1 +1,7 @@
 http://127.0.0.1:8761
+
+
+mvn clean install
+docker build --tag=eureka-server:0.0.1 -f src/main/docker/Dockerfile .
+docker image ls
+docker run -p 8761:8761 --memory=256m --memory-reservation=128m --name eureka-server -d eureka-server:0.0.1
