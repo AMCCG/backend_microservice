@@ -10,6 +10,12 @@ http://127.0.0.1:8001/hello-world/greeting
 Gateway
 http://127.0.0.1:8765/hello-world/greeting
 =============
+Docker
+mvn clean install
+docker build --build-arg PORT=8001 --build-arg EUREKA_SERVER_DEFAULT_ZONE=http://172.17.0.2:8761/eureka --tag=hello-world:0.0.1 -f src/main/docker/Dockerfile .
+docker run -p 8001:8001 --memory=256m --memory-reservation=128m --name hello-world-1 -d hello-world:0.0.1
+
+=============
 kubectl create deployment currency-exchange --image=mmv2-hello-world:0.0.1-SNAPSHOT
 kubectl expose deployment currency-exchange --type=LoadBalancer --port=8001
 kubectl get all
